@@ -1,0 +1,12 @@
+# Prevent directory listing
+Options -Indexes
+
+# Protect config directory from direct browser access
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^config/ - [F,L]
+</IfModule>
+
+# Allow pretty error pages
+ErrorDocument 403 /sport_event/index.php
+ErrorDocument 404 /sport_event/index.php
