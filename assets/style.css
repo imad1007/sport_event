@@ -291,20 +291,21 @@ main.main-content { flex: 1; }
     box-shadow: var(--shadow-lg);
 }
 .event-card-img {
-    height: 180px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 5rem;
+    height: 200px;
     position: relative;
+    overflow: hidden;
+    background: var(--navy);
 }
-/* Sport-type gradient backgrounds */
-.sport-football   { background: linear-gradient(135deg, #064e3b, #065f46); }
-.sport-basketball { background: linear-gradient(135deg, #7c2d12, #9a3412); }
-.sport-tennis     { background: linear-gradient(135deg, #713f12, #92400e); }
-.sport-running    { background: linear-gradient(135deg, #1e3a8a, #1d4ed8); }
-.sport-marathon   { background: linear-gradient(135deg, #4c1d95, #6d28d9); }
-.sport-default    { background: linear-gradient(135deg, var(--navy), var(--navy-light)); }
+.event-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+.event-card:hover .event-card-img img {
+    transform: scale(1.06);
+}
 
 .sport-badge {
     position: absolute;
@@ -393,11 +394,15 @@ main.main-content { flex: 1; }
 }
 .event-detail-main { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
 .event-detail-hero {
-    height: 320px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 8rem;
+    height: 360px;
+    overflow: hidden;
+    background: var(--navy);
+}
+.event-detail-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 .event-detail-body { padding: 30px; }
 .event-detail-body h1 { font-size: 2rem; color: var(--navy); margin-bottom: 20px; }

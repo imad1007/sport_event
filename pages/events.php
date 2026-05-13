@@ -33,24 +33,14 @@ $events = $stmt->fetchAll();
 // Sport options for the filter dropdown
 $sportTypes = ['Football', 'Basketball', 'Tennis', 'Running', 'Marathon'];
 
-function sportClass(string $t): string {
+function sportImage(string $t): string {
     return match(strtolower($t)) {
-        'football'   => 'sport-football',
-        'basketball' => 'sport-basketball',
-        'tennis'     => 'sport-tennis',
-        'running'    => 'sport-running',
-        'marathon'   => 'sport-marathon',
-        default      => 'sport-default',
-    };
-}
-function sportEmoji(string $t): string {
-    return match(strtolower($t)) {
-        'football'   => '⚽',
-        'basketball' => '🏀',
-        'tennis'     => '🎾',
-        'running'    => '🏃',
-        'marathon'   => '🏃‍♂️',
-        default      => '🏆',
+        'football'   => '/sport_event/assets/images/football.jpg',
+        'basketball' => '/sport_event/assets/images/basketball.jpg',
+        'tennis'     => '/sport_event/assets/images/tennis.jpg',
+        'running'    => '/sport_event/assets/images/running.jpg',
+        'marathon'   => '/sport_event/assets/images/marathon.jpg',
+        default      => '/sport_event/assets/images/marathon.jpg',
     };
 }
 ?>
@@ -104,8 +94,9 @@ function sportEmoji(string $t): string {
         <div class="events-grid">
             <?php foreach ($events as $event): ?>
                 <div class="event-card">
-                    <div class="event-card-img <?= sportClass($event['sport_type']) ?>">
-                        <?= sportEmoji($event['sport_type']) ?>
+                    <div class="event-card-img">
+                        <img src="<?= sportImage($event['sport_type']) ?>"
+                             alt="<?= htmlspecialchars($event['sport_type']) ?>">
                         <span class="sport-badge"><?= htmlspecialchars($event['sport_type']) ?></span>
                     </div>
                     <div class="event-card-body">

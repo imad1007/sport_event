@@ -15,28 +15,16 @@ $stmt = $pdo->prepare(
 $stmt->execute();
 $upcomingEvents = $stmt->fetchAll();
 
-// Helper: return a CSS class based on sport type
-function sportClass(string $type): string {
+// Helper: return the local image path for a sport type
+function sportImage(string $type): string {
     $map = [
-        'football'   => 'sport-football',
-        'basketball' => 'sport-basketball',
-        'tennis'     => 'sport-tennis',
-        'running'    => 'sport-running',
-        'marathon'   => 'sport-marathon',
+        'football'   => '/sport_event/assets/images/football.jpg',
+        'basketball' => '/sport_event/assets/images/basketball.jpg',
+        'tennis'     => '/sport_event/assets/images/tennis.jpg',
+        'running'    => '/sport_event/assets/images/running.jpg',
+        'marathon'   => '/sport_event/assets/images/marathon.jpg',
     ];
-    return $map[strtolower($type)] ?? 'sport-default';
-}
-
-// Helper: return an emoji for a sport type
-function sportEmoji(string $type): string {
-    $map = [
-        'football'   => '⚽',
-        'basketball' => '🏀',
-        'tennis'     => '🎾',
-        'running'    => '🏃',
-        'marathon'   => '🏃‍♂️',
-    ];
-    return $map[strtolower($type)] ?? '🏆';
+    return $map[strtolower($type)] ?? '/sport_event/assets/images/marathon.jpg';
 }
 ?>
 
@@ -80,9 +68,9 @@ function sportEmoji(string $type): string {
             <div class="events-grid">
                 <?php foreach ($upcomingEvents as $event): ?>
                     <div class="event-card">
-                        <!-- Sport-type coloured banner -->
-                        <div class="event-card-img <?= sportClass($event['sport_type']) ?>">
-                            <?= sportEmoji($event['sport_type']) ?>
+                        <div class="event-card-img">
+                            <img src="<?= sportImage($event['sport_type']) ?>"
+                                 alt="<?= htmlspecialchars($event['sport_type']) ?>">
                             <span class="sport-badge"><?= htmlspecialchars($event['sport_type']) ?></span>
                         </div>
 
