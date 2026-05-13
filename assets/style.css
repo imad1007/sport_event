@@ -294,17 +294,14 @@ main.main-content { flex: 1; }
     height: 200px;
     position: relative;
     overflow: hidden;
-    background: var(--navy);
+    background-color: var(--navy);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-size 0.4s ease;
 }
-.event-card-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.4s ease;
-}
-.event-card:hover .event-card-img img {
-    transform: scale(1.06);
+.event-card:hover .event-card-img {
+    background-size: 110%;
 }
 
 .sport-badge {
@@ -395,14 +392,10 @@ main.main-content { flex: 1; }
 .event-detail-main { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
 .event-detail-hero {
     height: 360px;
-    overflow: hidden;
-    background: var(--navy);
-}
-.event-detail-hero img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    background-color: var(--navy);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .event-detail-body { padding: 30px; }
 .event-detail-body h1 { font-size: 2rem; color: var(--navy); margin-bottom: 20px; }

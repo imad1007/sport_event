@@ -63,9 +63,8 @@ function sportImage(string $t): string {
     <!-- ===== LEFT: Main Event Info ===== -->
     <div class="event-detail-main">
         <!-- Sport banner / image -->
-        <div class="event-detail-hero">
-            <img src="<?= sportImage($event['sport_type']) ?>"
-                 alt="<?= htmlspecialchars($event['title']) ?>">
+        <div class="event-detail-hero"
+             style="background-image: url('<?= sportImage($event['sport_type']) ?>')">
         </div>
 
         <div class="event-detail-body">

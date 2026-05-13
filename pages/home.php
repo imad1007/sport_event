@@ -68,9 +68,8 @@ function sportImage(string $type): string {
             <div class="events-grid">
                 <?php foreach ($upcomingEvents as $event): ?>
                     <div class="event-card">
-                        <div class="event-card-img">
-                            <img src="<?= sportImage($event['sport_type']) ?>"
-                                 alt="<?= htmlspecialchars($event['sport_type']) ?>">
+                        <div class="event-card-img"
+                             style="background-image: url('<?= sportImage($event['sport_type']) ?>')">
                             <span class="sport-badge"><?= htmlspecialchars($event['sport_type']) ?></span>
                         </div>
 
